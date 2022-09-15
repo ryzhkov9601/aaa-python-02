@@ -13,11 +13,11 @@ class CountVectorizer:
             self._feature_names.update(dict.fromkeys(counter))
         self._feature_names = list(self._feature_names)
 
-        result = []
+        count_matrix = []
         for counter in term_counters:
-            result.append([counter[key] for key in self._feature_names])
+            count_matrix.append([counter[key] for key in self._feature_names])
 
-        return result
+        return count_matrix
 
     def get_feature_names(self):
         return self._feature_names
