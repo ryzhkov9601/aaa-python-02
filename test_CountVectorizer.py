@@ -20,18 +20,18 @@ class Test_CountVectorizer:
     ]
 
     @pytest.fixture
-    def cv(self):
+    def vectorizer(self):
         return CountVectorizer.CountVectorizer()
 
     @pytest.fixture
-    def cv_fitted(self, cv):
-        cv.fit_transform(self.corpus)
-        return cv
+    def vectorizer_fitted(self, vectorizer):
+        vectorizer.fit_transform(self.corpus)
+        return vectorizer
 
-    def test_fit_transform(self, cv):
-        count_matrix = cv.fit_transform(self.corpus)
+    def test_fit_transform(self, vectorizer):
+        count_matrix = vectorizer.fit_transform(self.corpus)
         assert count_matrix == self.count_matrix
 
-    def test_get_feature_names(self, cv_fitted):
-        feature_names = cv_fitted.get_feature_names()
+    def test_get_feature_names(self, vectorizer_fitted):
+        feature_names = vectorizer_fitted.get_feature_names()
         assert feature_names == self.feature_names
