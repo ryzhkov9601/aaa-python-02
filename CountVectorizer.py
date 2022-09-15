@@ -2,10 +2,18 @@ from collections import Counter
 
 
 class CountVectorizer:
+    """
+    A class to represent a count vectorizer's functionality.
+    """
+
     def __init__(self):
         pass
 
     def fit_transform(self, corpus):
+        """
+        Fits for given corpus, then return count matrix.
+        """
+
         self._feature_names = dict()
 
         term_counters = [Counter(text.lower().split()) for text in corpus]
@@ -20,4 +28,8 @@ class CountVectorizer:
         return count_matrix
 
     def get_feature_names(self):
+        """
+        Return a list of feature names.
+        """
+
         return self._feature_names
