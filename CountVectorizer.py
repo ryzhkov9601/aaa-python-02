@@ -7,14 +7,12 @@ class CountVectorizer:
     """
 
     def __init__(self):
-        pass
+        self._feature_names = dict()
 
     def fit_transform(self, corpus):
         """
         Fits for given corpus, then return count matrix.
         """
-
-        self._feature_names = dict()
 
         term_counters = [Counter(text.lower().split()) for text in corpus]
         for counter in term_counters:
