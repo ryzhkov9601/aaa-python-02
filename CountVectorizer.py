@@ -6,17 +6,14 @@ class CountVectorizer:
     A class to represent a count vectorizer's functionality.
     """
 
-    def __init__(self):
-        pass
-
     def fit_transform(self, corpus):
         """
         Fits for given corpus, then return count matrix.
         """
 
-        self._feature_names = dict()
-
         term_counters = [Counter(text.lower().split()) for text in corpus]
+
+        self._feature_names = dict()
         for counter in term_counters:
             self._feature_names.update(dict.fromkeys(counter))
         self._feature_names = list(self._feature_names)
@@ -42,11 +39,11 @@ if __name__ == '__main__':
     ]
     vectorizer = CountVectorizer()
     count_matrix = vectorizer.fit_transform(corpus)
-
-    print(vectorizer.get_feature_names())
+    print('Corpus: ', sep='\n', *corpus)
+    print('Feature names:', vectorizer.get_feature_names())
     # Out: ['crock', 'pot', 'pasta', 'never', 'boil', 'again', 'pomodoro',
     #       'fresh', 'ingredients', 'parmesan', 'to', 'taste']
 
-    print(count_matrix)
+    print('Count matrix:', sep='\n', *count_matrix)
     # Out: [[1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0],
     #       [0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1]]
