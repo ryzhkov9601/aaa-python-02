@@ -39,11 +39,13 @@ if __name__ == '__main__':
     ]
     vectorizer = CountVectorizer()
     count_matrix = vectorizer.fit_transform(corpus)
-    print('Corpus: ', sep='\n', *corpus)
-    print('Feature names:', vectorizer.get_feature_names())
+    print('Corpus: ')
+    print(*corpus, sep='\n')
+    print('Feature names:')
+    print(vectorizer.get_feature_names())
     # Out: ['crock', 'pot', 'pasta', 'never', 'boil', 'again', 'pomodoro',
     #       'fresh', 'ingredients', 'parmesan', 'to', 'taste']
-
-    print('Count matrix:', sep='\n', *count_matrix)
+    print('Count matrix:')
+    print(count_matrix)
     # Out: [[1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0],
     #       [0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1]]
