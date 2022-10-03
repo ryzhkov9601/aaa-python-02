@@ -16,10 +16,10 @@ class CountVectorizer:
 
         term_counters = [Counter(text.lower().split()) for text in corpus]
 
-        self._feature_names = dict()
+        unique_features = dict()
         for counter in term_counters:
-            self._feature_names.update(dict.fromkeys(counter))
-        self._feature_names = list(self._feature_names)
+            unique_features.update(dict.fromkeys(counter))
+        self._feature_names = list(unique_features)
 
         count_matrix = []
         for counter in term_counters:
