@@ -6,6 +6,9 @@ class CountVectorizer:
     A class to represent a count vectorizer's functionality.
     """
 
+    def __init__(self):
+        self._feature_names = []
+
     def fit_transform(self, corpus):
         """
         Fits for given corpus, then return count matrix.

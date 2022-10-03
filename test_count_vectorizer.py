@@ -1,5 +1,5 @@
 import pytest
-import CountVectorizer
+import count_vectorizer
 
 
 class Test_CountVectorizer:
@@ -21,7 +21,7 @@ class Test_CountVectorizer:
 
     @pytest.fixture
     def vectorizer(self):
-        return CountVectorizer.CountVectorizer()
+        return count_vectorizer.CountVectorizer()
 
     @pytest.fixture
     def vectorizer_fitted(self, vectorizer):
