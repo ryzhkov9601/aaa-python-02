@@ -16,10 +16,11 @@ class CountVectorizer:
 
         term_counters = [Counter(text.lower().split()) for text in corpus]
 
-        unique_features = dict()
+        unique_features = set()
         for counter in term_counters:
-            unique_features.update(dict.fromkeys(counter))
-        self._feature_names = list(unique_features)
+            unique_features.update(counter)
+
+        self._feature_names = sorted(list(unique_features))
 
         count_matrix = []
         for counter in term_counters:
@@ -46,9 +47,9 @@ if __name__ == '__main__':
     print(*corpus, sep='\n')
     print('Feature names:')
     print(vectorizer.get_feature_names())
-    # Out: ['crock', 'pot', 'pasta', 'never', 'boil', 'again', 'pomodoro',
-    #       'fresh', 'ingredients', 'parmesan', 'to', 'taste']
+    # Out: ['again', 'boil', 'crock', 'fresh', 'ingredients', 'never',
+    # 'parmesan', 'pasta', 'pomodoro', 'pot', 'taste', 'to']
     print('Count matrix:')
     print(count_matrix)
-    # Out: [[1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-    #       [0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1]]
+    # Out: [[1, 1, 1, 0, 0, 1, 0, 2, 0, 1, 0, 0],
+    #       [0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1]]

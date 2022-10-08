@@ -9,14 +9,14 @@ class Test_CountVectorizer:
     ]
 
     feature_names = [
-        'crock', 'pot', 'pasta', 'never', 'boil',
-        'again', 'pomodoro', 'fresh', 'ingredients',
-        'parmesan', 'to', 'taste'
+        'again', 'boil', 'crock', 'fresh', 'ingredients',
+        'never', 'parmesan', 'pasta', 'pomodoro',
+        'pot', 'taste', 'to'
     ]
 
     count_matrix = [
-        [1, 1, 2, 1, 1, 1, 0, 0, 0, 0, 0, 0],
-        [0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1]
+        [1, 1, 1, 0, 0, 1, 0, 2, 0, 1, 0, 0],
+        [0, 0, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1]
     ]
 
     @pytest.fixture
